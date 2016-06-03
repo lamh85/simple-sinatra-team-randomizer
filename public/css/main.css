@@ -1,6 +1,7 @@
 body {
     background-color: ivory;
     font-family: sans-serif;
+    box-sizing: border-box;
 }   
 
 h1 {
@@ -8,6 +9,7 @@ h1 {
     font-family: Garamond;
     font-size: 3em;
 }
+
 
 .error {
     color: maroon;
@@ -17,4 +19,10 @@ h1 {
     font-family: sans-serif;
 }
 
+.team {
+    border: 5px #Fc8 solid;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 0px 30px 20px 30px;
+}
 

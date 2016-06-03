@@ -28,14 +28,26 @@ post '/' do
     @num_of_teams = @num_of_teams.to_i
     # Initialize empty teams
     1.upto(@num_of_teams) do |x|
-      session[:teams]["Team #{x}".to_sym] = 0
+      session[:teams]["Team #{x}".to_sym] = []
     end
     # Distribute names among teams in a random fashion
-#    while @names.length > 0
-#      
-#    end
-    p session[:teams]
+    # While there are names, find smallest team and add a random name, remove that name, repeat.
+    while @names.length > 0 do
+      @shortest = "Team 1".to_sym
+      #p "In while shortest set to T1 #{@shortest}"
+      session[:teams].each do |key, value|
+        if value.length < session[:teams][@shortest].length
+          @shortest = key
+          p @shortest
+        end
+      end
+      p "Current shortest #{@shortest}"
+      p session[:teams]
+      @ran_num = rand(0...@names.length)
+      session[:teams][@shortest] << @names[@ran_num]
+      @names.delete_at(@ran_num)
+    end
+    #p session[:teams]
     erb :index, layout: :app_layout
   end
-
 end

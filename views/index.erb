@@ -21,4 +21,16 @@
 	<input type="submit" value="Randomize!">
     </div>
 </form>
+<hr>
+<% session[:teams].each do |key, value| %>
+    <div class="team">
+	<h3><%= key%></h3>
+	<% value.each do |member| %>
+	    <%= member%><br>
+	<% end %>
+    </div>
+<% end %>
+
+
+
 
