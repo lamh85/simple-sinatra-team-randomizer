@@ -1,3 +1,4 @@
 # simple-sinatra-team-randomizer
 
-A simple team randomizer in sinatra
+Will be a simple team randomizer in sinatra.
+Work in progress.
