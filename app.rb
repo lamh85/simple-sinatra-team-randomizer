@@ -14,12 +14,14 @@ end
 post '/' do
   @names = params[:names]
   @num_of_teams = params[:num_of_teams]
+  p @names
+  p @num_of_teams
   # Checks whether textarea is empty
   if @names.strip.empty?
     @error = "You haven't entered any names!"
     erb :index, layout: :app_layout
   # Checks the number of teams input for non-digit characters or emptiness
-  elsif !(@num_of_teams =~ /\D/).nil? || @num_of_teams.strip.empty? || @num_of_teams.to_i > @names.strip.length
+  elsif !(@num_of_teams =~ /\D/).nil? || @num_of_teams.strip.empty? || @num_of_teams.to_i == 0 || @num_of_teams.to_i > @names.split(',').length 
     @error = "Invalid input for number of teams!"
     erb :index, layout: :app_layout
   # Assign teams if checks have been passed  

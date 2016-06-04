@@ -13,15 +13,19 @@
     </label>
     <textarea rows="10" cols="80" id="name-field" name="names">
     </textarea>
+    <div>
     <label for="num-of-teams">
 	How many teams do you want?
     </label>
     <input type="text" name="num_of_teams">
+    </div>
     <div>
 	<input type="submit" value="Randomize!">
     </div>
 </form>
 <hr>
+
+<div class="center">
 <% session[:teams].each do |key, value| %>
     <div class="team">
 	<h3><%= key%></h3>
@@ -30,6 +34,7 @@
 	<% end %>
     </div>
 <% end %>
+</div>
 
 
 
